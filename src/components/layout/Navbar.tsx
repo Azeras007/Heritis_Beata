@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Menu, Wine, User, LogIn, Search } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, Wine, User, LogIn, Search, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -16,6 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useToast } from "@/components/ui/use-toast";
 
 interface NavbarProps {
   isLoggedIn?: boolean;
@@ -25,12 +27,57 @@ interface NavbarProps {
 }
 
 const Navbar = ({
-  isLoggedIn = false,
-  userType = "investor",
-  userName = "Utilisateur Invité",
-  userAvatar = "https://api.dicebear.com/7.x/avataaars/svg?seed=guest",
+  isLoggedIn: propIsLoggedIn = false,
+  userType: propUserType = "investor",
+  userName: propUserName = "Utilisateur Invité",
+  userAvatar:
+    propUserAvatar = "https://api.dicebear.com/7.x/avataaars/svg?seed=guest",
 }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(propIsLoggedIn);
+  const [userType, setUserType] = useState(propUserType);
+  const [userName, setUserName] = useState(propUserName);
+  const [userAvatar, setUserAvatar] = useState(propUserAvatar);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  // Check local storage for login status on component mount
+  useEffect(() => {
+    const storedIsLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const storedUserType =
+      (localStorage.getItem("userType") as "investor" | "vineyard") ||
+      propUserType;
+    const storedUserName = localStorage.getItem("userName") || propUserName;
+
+    setIsLoggedIn(storedIsLoggedIn);
+    setUserType(storedUserType);
+    setUserName(storedUserName);
+
+    // Generate avatar based on username
+    if (storedIsLoggedIn) {
+      setUserAvatar(
+        `https://api.dicebear.com/7.x/avataaars/svg?seed=${storedUserName.replace(/\s+/g, "")}`,
+      );
+    }
+  }, [propIsLoggedIn, propUserType, propUserName, propUserAvatar]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userType");
+    localStorage.removeItem("userName");
+
+    setIsLoggedIn(false);
+    setUserType("investor");
+    setUserName("Utilisateur Invité");
+    setUserAvatar("https://api.dicebear.com/7.x/avataaars/svg?seed=guest");
+
+    toast({
+      title: "Déconnexion réussie",
+      description: "À bientôt sur Heritis!",
+    });
+
+    navigate("/");
+  };
 
   return (
     <nav className="w-full h-20 bg-white border-b border-gray-200 shadow-sm fixed top-0 left-0 z-50">
@@ -48,48 +95,54 @@ const Navbar = ({
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  Accueil
-                </NavigationMenuLink>
+                <Link to="/">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Accueil
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Découvrir</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[400px]">
                     <div className="p-2 hover:bg-slate-100 rounded-md">
-                      <NavigationMenuLink
-                        href="/projects/featured"
-                        className="block font-medium"
-                      >
-                        Vignobles en Vedette
-                      </NavigationMenuLink>
+                      <Link to="/projects">
+                        <NavigationMenuLink className="block font-medium">
+                          Vignobles en Vedette
+                        </NavigationMenuLink>
+                      </Link>
                       <p className="text-sm text-gray-500">
                         Explorez notre sélection de projets viticoles
                         exceptionnels
                       </p>
                     </div>
                     <div className="p-2 hover:bg-slate-100 rounded-md">
-                      <NavigationMenuLink
-                        href="/projects/new"
-                        className="block font-medium"
-                      >
-                        Nouveaux Arrivages
-                      </NavigationMenuLink>
+                      <Link to="/projects">
+                        <NavigationMenuLink className="block font-medium">
+                          Nouveaux Arrivages
+                        </NavigationMenuLink>
+                      </Link>
                       <p className="text-sm text-gray-500">
                         Découvrez les derniers projets viticoles en recherche de
                         financement
                       </p>
                     </div>
                     <div className="p-2 hover:bg-slate-100 rounded-md">
-                      <NavigationMenuLink
-                        href="/projects/map"
-                        className="block font-medium"
-                      >
-                        Carte des Vignobles
-                      </NavigationMenuLink>
+                      <Link to="/marketplace">
+                        <NavigationMenuLink className="block font-medium">
+                          Boutique de Vins
+                        </NavigationMenuLink>
+                      </Link>
+                      <p className="text-sm text-gray-500">
+                        Achetez des vins directement auprès des vignobles
+                      </p>
+                    </div>
+                    <div className="p-2 hover:bg-slate-100 rounded-md">
+                      <Link to="/projects">
+                        <NavigationMenuLink className="block font-medium">
+                          Carte des Vignobles
+                        </NavigationMenuLink>
+                      </Link>
                       <p className="text-sm text-gray-500">
                         Parcourez les projets par région et terroir
                       </p>
@@ -141,12 +194,11 @@ const Navbar = ({
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink
-                  href="/about"
-                  className={navigationMenuTriggerStyle()}
-                >
-                  À Propos
-                </NavigationMenuLink>
+                <Link to="/">
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    À Propos
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -187,17 +239,21 @@ const Navbar = ({
                 <DropdownMenuItem>
                   <span>Paramètres</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout}>
+                  <LogOut className="mr-2 h-4 w-4" />
                   <span>Déconnexion</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
             <div className="hidden md:flex space-x-2">
-              <Button variant="ghost">
+              <Button variant="ghost" onClick={() => navigate("/login")}>
                 <LogIn className="mr-2 h-4 w-4" /> Connexion
               </Button>
-              <Button className="bg-[#722F37] hover:bg-[#5a252c] text-white">
+              <Button
+                className="bg-[#722F37] hover:bg-[#5a252c] text-white"
+                onClick={() => navigate("/register")}
+              >
                 S'inscrire
               </Button>
             </div>
@@ -222,8 +278,11 @@ const Navbar = ({
             <a href="/" className="block py-2 font-medium">
               Accueil
             </a>
-            <a href="/projects/featured" className="block py-2 font-medium">
-              Découvrir
+            <a href="/projects" className="block py-2 font-medium">
+              Projets
+            </a>
+            <a href="/marketplace" className="block py-2 font-medium">
+              Boutique
             </a>
             <a
               href="/how-it-works/investors"
@@ -237,10 +296,23 @@ const Navbar = ({
             <div className="pt-4 border-t border-gray-200">
               {!isLoggedIn && (
                 <div className="space-y-2">
-                  <Button variant="outline" className="w-full">
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => {
+                      navigate("/login");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
                     <LogIn className="mr-2 h-4 w-4" /> Connexion
                   </Button>
-                  <Button className="w-full bg-[#722F37] hover:bg-[#5a252c] text-white">
+                  <Button
+                    className="w-full bg-[#722F37] hover:bg-[#5a252c] text-white"
+                    onClick={() => {
+                      navigate("/register");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
                     S'inscrire
                   </Button>
                 </div>

@@ -63,6 +63,7 @@ const InvestmentOptionCard = ({
           className="w-full text-white"
           style={{ backgroundColor: accentColor, borderColor: accentColor }}
           variant="outline"
+          onClick={() => (window.location.href = "/projects")}
         >
           {buttonText}
         </Button>

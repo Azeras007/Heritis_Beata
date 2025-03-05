@@ -42,6 +42,7 @@ const HeroSection = ({
             <Button
               size="lg"
               className="bg-[#722F37] hover:bg-[#5a252c] text-white border-2 border-white px-8 py-6 flex items-center gap-2"
+              onClick={() => (window.location.href = "/projects")}
             >
               {investorCta}
               <ArrowRight className="h-5 w-5" />
@@ -50,6 +51,7 @@ const HeroSection = ({
               variant="outline"
               size="lg"
               className="bg-transparent hover:bg-white/10 text-white border-2 border-white px-8 py-6 flex items-center gap-2"
+              onClick={() => (window.location.href = "/register")}
             >
               {ownerCta}
               <ArrowRight className="h-5 w-5" />

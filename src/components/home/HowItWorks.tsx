@@ -115,6 +115,7 @@ const HowItWorks = ({
             <Button
               className="bg-[#722F37] hover:bg-[#5a252c] text-white"
               size="lg"
+              onClick={() => (window.location.href = "/projects")}
             >
               Commencer à Investir <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -137,6 +138,7 @@ const HowItWorks = ({
             <Button
               className="bg-[#722F37] hover:bg-[#5a252c] text-white"
               size="lg"
+              onClick={() => (window.location.href = "/register")}
             >
               Inscrire Votre Vignoble <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

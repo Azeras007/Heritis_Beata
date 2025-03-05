@@ -109,7 +109,10 @@ const ProjectCard = ({
       </CardContent>
 
       <CardFooter className="mt-auto">
-        <Button className="w-full bg-[#722F37] hover:bg-[#5a252c] text-white">
+        <Button
+          className="w-full bg-[#722F37] hover:bg-[#5a252c] text-white"
+          onClick={() => (window.location.href = `/projects/${id}`)}
+        >
           Soutenir Ce Projet
         </Button>
       </CardFooter>

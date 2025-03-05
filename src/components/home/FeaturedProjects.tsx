@@ -195,7 +195,10 @@ const FeaturedProjects = ({
         </div>
 
         <div className="text-center mt-10">
-          <Button className="bg-[#722F37] hover:bg-[#5a252c] text-white px-8 py-2">
+          <Button
+            className="bg-[#722F37] hover:bg-[#5a252c] text-white px-8 py-2"
+            onClick={() => (window.location.href = "/projects")}
+          >
             Voir Tous les Projets
           </Button>
         </div>
