@@ -21,14 +21,14 @@ interface FeaturedProjectsProps {
 }
 
 const FeaturedProjects = ({
-  title = "Featured Vineyard Projects",
-  subtitle = "Discover unique vineyard opportunities and become part of their story",
+  title = "Projets Viticoles en Vedette",
+  subtitle = "Découvrez des opportunités viticoles uniques et devenez partie prenante de leur histoire",
   projects = [
     {
       id: "1",
-      title: "Château Bordeaux Heritage Restoration",
+      title: "Restauration du Patrimoine Château Bordeaux",
       description:
-        "Help us restore this 18th century vineyard to its former glory and become part of our exclusive wine club with special vintage access.",
+        "Aidez-nous à restaurer ce vignoble du 18ème siècle à sa gloire d'antan et rejoignez notre club de vin exclusif avec un accès spécial aux millésimes.",
       imageUrl:
         "https://images.unsplash.com/photo-1597916829826-02e5bb4a54e0?w=600&q=80",
       fundingGoal: 50000,
@@ -40,23 +40,23 @@ const FeaturedProjects = ({
     },
     {
       id: "2",
-      title: "Tuscan Hills Organic Conversion",
+      title: "Conversion Bio des Collines Toscanes",
       description:
-        "Support our family vineyard's transition to fully organic production methods while securing access to our limited reserve wines.",
+        "Soutenez la transition de notre vignoble familial vers des méthodes de production entièrement biologiques tout en vous assurant l'accès à nos vins de réserve limités.",
       imageUrl:
         "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=600&q=80",
       fundingGoal: 35000,
       currentFunding: 28000,
       daysLeft: 14,
-      location: "Tuscany, Italy",
+      location: "Toscane, Italie",
       ownerName: "Marco Bianchi",
       ownerAvatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marco",
     },
     {
       id: "3",
-      title: "Napa Valley New Varietal Experiment",
+      title: "Expérimentation de Nouveaux Cépages à Napa Valley",
       description:
-        "Join us in pioneering a climate-resistant grape varietal that could revolutionize California wine production in changing conditions.",
+        "Rejoignez-nous dans le développement d'un cépage résistant au climat qui pourrait révolutionner la production viticole californienne face aux changements climatiques.",
       imageUrl:
         "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=600&q=80",
       fundingGoal: 75000,
@@ -68,29 +68,29 @@ const FeaturedProjects = ({
     },
     {
       id: "4",
-      title: "Mendoza High Altitude Expansion",
+      title: "Expansion en Haute Altitude à Mendoza",
       description:
-        "Help us expand our vineyard to higher elevations in the Andes to produce more complex Malbecs with unique terroir expressions.",
+        "Aidez-nous à étendre notre vignoble à des altitudes plus élevées dans les Andes pour produire des Malbecs plus complexes avec des expressions de terroir uniques.",
       imageUrl:
         "https://images.unsplash.com/photo-1566903451935-7e8833da3b22?w=600&q=80",
       fundingGoal: 60000,
       currentFunding: 18000,
       daysLeft: 45,
-      location: "Mendoza, Argentina",
+      location: "Mendoza, Argentine",
       ownerName: "Carlos Mendez",
       ownerAvatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos",
     },
     {
       id: "5",
-      title: "Loire Valley Sparkling Wine Innovation",
+      title: "Innovation en Vin Mousseux de la Vallée de la Loire",
       description:
-        "Fund our experimental sparkling wine production using traditional methods with modern technology for a new generation of bubbles.",
+        "Financez notre production expérimentale de vin mousseux utilisant des méthodes traditionnelles avec une technologie moderne pour une nouvelle génération de bulles.",
       imageUrl:
         "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80",
       fundingGoal: 40000,
       currentFunding: 22500,
       daysLeft: 28,
-      location: "Loire Valley, France",
+      location: "Vallée de la Loire, France",
       ownerName: "Jeanne Moreau",
       ownerAvatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jeanne",
     },
@@ -189,14 +189,14 @@ const FeaturedProjects = ({
               key={index}
               className={`h-2.5 rounded-full transition-all ${currentIndex === index * visibleProjects ? "w-8 bg-[#722F37]" : "w-2.5 bg-gray-300"}`}
               onClick={() => setCurrentIndex(index * visibleProjects)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`Aller à la diapositive ${index + 1}`}
             />
           ))}
         </div>
 
         <div className="text-center mt-10">
           <Button className="bg-[#722F37] hover:bg-[#5a252c] text-white px-8 py-2">
-            View All Projects
+            Voir Tous les Projets
           </Button>
         </div>
       </div>

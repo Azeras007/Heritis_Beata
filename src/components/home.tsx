@@ -16,7 +16,7 @@ interface HomePageProps {
 const HomePage = ({
   isLoggedIn = false,
   userType = "investor",
-  userName = "Guest User",
+  userName = "Utilisateur Invité",
   userAvatar = "https://api.dicebear.com/7.x/avataaars/svg?seed=guest",
 }: HomePageProps) => {
   return (

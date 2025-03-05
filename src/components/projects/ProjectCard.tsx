@@ -26,8 +26,8 @@ interface ProjectCardProps {
 
 const ProjectCard = ({
   id = "1",
-  title = "Château Bordeaux Heritage Restoration",
-  description = "Help us restore this 18th century vineyard to its former glory and become part of our exclusive wine club with special vintage access.",
+  title = "Restauration du Patrimoine Château Bordeaux",
+  description = "Aidez-nous à restaurer ce vignoble du 18ème siècle à sa gloire d'antan et rejoignez notre club de vin exclusif avec un accès spécial aux millésimes.",
   imageUrl = "https://images.unsplash.com/photo-1597916829826-02e5bb4a54e0?w=600&q=80",
   fundingGoal = 50000,
   currentFunding = 32500,
@@ -92,10 +92,10 @@ const ProjectCard = ({
         <div className="space-y-3">
           <div className="flex justify-between text-sm">
             <span className="font-medium text-gray-900">
-              ${currentFunding.toLocaleString()}
+              {currentFunding.toLocaleString()} €
             </span>
             <span className="text-gray-500">
-              of ${fundingGoal.toLocaleString()}
+              sur {fundingGoal.toLocaleString()} €
             </span>
           </div>
           <Progress value={fundingPercentage} className="h-2 bg-gray-200" />
@@ -103,14 +103,14 @@ const ProjectCard = ({
             <span className="font-medium text-gray-900">
               {fundingPercentage}%
             </span>
-            <span className="text-gray-500">{daysLeft} days left</span>
+            <span className="text-gray-500">{daysLeft} jours restants</span>
           </div>
         </div>
       </CardContent>
 
       <CardFooter className="mt-auto">
         <Button className="w-full bg-[#722F37] hover:bg-[#5a252c] text-white">
-          Support This Project
+          Soutenir Ce Projet
         </Button>
       </CardFooter>
     </Card>

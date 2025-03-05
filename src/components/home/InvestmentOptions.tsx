@@ -19,11 +19,11 @@ interface InvestmentOptionProps {
 }
 
 const InvestmentOptionCard = ({
-  title = "Investment Option",
-  description = "Description of this investment option",
+  title = "Option d'Investissement",
+  description = "Description de cette option d'investissement",
   icon,
-  benefits = ["Benefit 1", "Benefit 2", "Benefit 3"],
-  buttonText = "Learn More",
+  benefits = ["Avantage 1", "Avantage 2", "Avantage 3"],
+  buttonText = "En Savoir Plus",
   accentColor = "#722F37",
 }: InvestmentOptionProps) => {
   return (
@@ -46,7 +46,7 @@ const InvestmentOptionCard = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        <h4 className="font-medium mb-2 text-gray-800">Benefits:</h4>
+        <h4 className="font-medium mb-2 text-gray-800">Avantages:</h4>
         <ul className="space-y-2">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex items-start gap-2">
@@ -60,7 +60,7 @@ const InvestmentOptionCard = ({
       </CardContent>
       <div className="p-6 pt-0 mt-auto">
         <Button
-          className="w-full"
+          className="w-full text-white"
           style={{ backgroundColor: accentColor, borderColor: accentColor }}
           variant="outline"
         >
@@ -78,49 +78,49 @@ interface InvestmentOptionsProps {
 }
 
 const InvestmentOptions = ({
-  title = "Investment Options",
-  subtitle = "Choose the investment model that works best for you",
+  title = "Options d'Investissement",
+  subtitle = "Choisissez le modèle d'investissement qui vous convient le mieux",
   options = [
     {
-      title: "Donation",
+      title: "Don",
       description:
-        "Support vineyard projects you love with no financial return, but receive exclusive wine rewards.",
+        "Soutenez les projets viticoles que vous aimez sans retour financier, mais recevez des récompenses exclusives en vin.",
       icon: <GiftIcon className="w-6 h-6 text-[#722F37]" />,
       benefits: [
-        "Receive exclusive wine rewards based on contribution level",
-        "Invitations to special vineyard events",
-        "Recognition on vineyard supporter wall",
-        "Tax benefits where applicable",
+        "Recevez des récompenses exclusives en vin selon votre niveau de contribution",
+        "Invitations à des événements spéciaux au vignoble",
+        "Reconnaissance sur le mur des soutiens du vignoble",
+        "Avantages fiscaux là où c'est applicable",
       ],
-      buttonText: "Donate to Projects",
+      buttonText: "Faire un Don aux Projets",
       accentColor: "#722F37",
     },
     {
-      title: "Loan",
+      title: "Prêt",
       description:
-        "Provide capital to vineyards with fixed-term repayment and interest, plus wine benefits.",
+        "Fournissez du capital aux vignobles avec remboursement à terme fixe et intérêts, plus des avantages en vin.",
       icon: <CoinsIcon className="w-6 h-6 text-[#5E8C31]" />,
       benefits: [
-        "Fixed interest returns over agreed time period",
-        "Principal repayment at end of term",
-        "Wine allocation based on loan amount",
-        "Lower risk than equity investments",
+        "Rendements d'intérêts fixes sur une période convenue",
+        "Remboursement du principal à la fin du terme",
+        "Allocation de vin basée sur le montant du prêt",
+        "Risque plus faible que les investissements en actions",
       ],
-      buttonText: "Explore Loan Options",
+      buttonText: "Explorer les Options de Prêt",
       accentColor: "#5E8C31",
     },
     {
-      title: "Equity",
+      title: "Actions",
       description:
-        "Become a partial owner of vineyards with potential for long-term returns and premium benefits.",
+        "Devenez propriétaire partiel de vignobles avec potentiel de rendements à long terme et avantages premium.",
       icon: <TrendingUpIcon className="w-6 h-6 text-[#B8860B]" />,
       benefits: [
-        "Ownership stake in vineyard operations",
-        "Share in profits and potential appreciation",
-        "Premium wine allocations and owner privileges",
-        "Voting rights on key vineyard decisions",
+        "Participation au capital dans les opérations du vignoble",
+        "Part des bénéfices et appréciation potentielle",
+        "Allocations de vin premium et privilèges de propriétaire",
+        "Droits de vote sur les décisions clés du vignoble",
       ],
-      buttonText: "Invest in Equity",
+      buttonText: "Investir en Actions",
       accentColor: "#B8860B",
     },
   ],

@@ -38,8 +38,8 @@ const Footer = ({
   },
   contactInfo = {
     email: "contact@heritis.com",
-    phone: "+1 (555) 123-4567",
-    address: "123 Vineyard Way, Napa Valley, CA 94558",
+    phone: "+33 (0)1 23 45 67 89",
+    address: "123 Chemin des Vignes, Bordeaux, France 33000",
   },
 }: FooterProps) => {
   return (
@@ -53,8 +53,8 @@ const Footer = ({
               <span className="text-xl font-bold">{companyName}</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Connecting vineyard owners with passionate investors to create
-              sustainable wine futures.
+              Connecter les propriétaires de vignobles avec des investisseurs
+              passionnés pour créer un avenir viticole durable.
             </p>
             <div className="flex space-x-4">
               <a
@@ -90,14 +90,14 @@ const Footer = ({
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <h3 className="text-lg font-semibold">Liens Rapides</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  About Us
+                  À Propos
                 </a>
               </li>
               <li>
@@ -105,7 +105,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  How It Works
+                  Comment ça Marche
                 </a>
               </li>
               <li>
@@ -113,7 +113,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Browse Projects
+                  Parcourir les Projets
                 </a>
               </li>
               <li>
@@ -121,7 +121,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Start a Project
+                  Démarrer un Projet
                 </a>
               </li>
               <li>
@@ -129,7 +129,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Success Stories
+                  Histoires de Réussite
                 </a>
               </li>
             </ul>
@@ -137,14 +137,14 @@ const Footer = ({
 
           {/* Resources */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Resources</h3>
+            <h3 className="text-lg font-semibold">Ressources</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Vineyard Guide
+                  Guide des Vignobles
                 </a>
               </li>
               <li>
@@ -152,7 +152,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Investment FAQ
+                  FAQ Investissement
                 </a>
               </li>
               <li>
@@ -160,7 +160,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Wine Education
+                  Éducation Viticole
                 </a>
               </li>
               <li>
@@ -168,7 +168,7 @@ const Footer = ({
                   href="#"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  Legal Resources
+                  Ressources Juridiques
                 </a>
               </li>
               <li>
@@ -184,7 +184,7 @@ const Footer = ({
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contact Us</h3>
+            <h3 className="text-lg font-semibold">Contactez-nous</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin
@@ -212,7 +212,7 @@ const Footer = ({
               variant="outline"
               className="border-[#722F37] text-white hover:bg-[#722F37] hover:text-white mt-2"
             >
-              Contact Us
+              Contactez-nous
             </Button>
           </div>
         </div>
@@ -221,18 +221,18 @@ const Footer = ({
 
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <div className="mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} {companyName}. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {companyName}. Tous droits
+            réservés.
           </div>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
+              Politique de Confidentialité
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Terms of Service
+              Conditions d'Utilisation
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Cookie Policy
+              Politique des Cookies
             </a>
           </div>
         </div>

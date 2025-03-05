@@ -12,8 +12,8 @@ interface StepCardProps {
 
 const StepCard = ({
   icon = <Grape className="h-10 w-10 text-[#722F37]" />,
-  title = "Step Title",
-  description = "Step description goes here",
+  title = "Titre de l'Étape",
+  description = "Description de l'étape ici",
   stepNumber = 1,
 }: StepCardProps) => {
   return (
@@ -40,51 +40,51 @@ interface HowItWorksProps {
 }
 
 const HowItWorks = ({
-  title = "How Heritis Works",
-  subtitle = "Join our community of wine enthusiasts and vineyard owners to create a sustainable future for viticulture",
+  title = "Comment Fonctionne Heritis",
+  subtitle = "Rejoignez notre communauté d'amateurs de vin et de propriétaires de vignobles pour créer un avenir durable pour la viticulture",
   investorSteps = [
     {
       icon: <Users className="h-10 w-10 text-[#722F37]" />,
-      title: "Create an Account",
+      title: "Créez un Compte",
       description:
-        "Sign up and complete your investor profile to start discovering vineyard projects.",
+        "Inscrivez-vous et complétez votre profil d'investisseur pour commencer à découvrir des projets viticoles.",
       stepNumber: 1,
     },
     {
       icon: <Grape className="h-10 w-10 text-[#722F37]" />,
-      title: "Discover Projects",
+      title: "Découvrez des Projets",
       description:
-        "Browse featured vineyards and find projects that align with your investment interests.",
+        "Parcourez les vignobles en vedette et trouvez des projets qui correspondent à vos intérêts d'investissement.",
       stepNumber: 2,
     },
     {
       icon: <Coins className="h-10 w-10 text-[#722F37]" />,
-      title: "Invest & Earn Rewards",
+      title: "Investissez & Gagnez des Récompenses",
       description:
-        "Choose your investment model and receive exclusive wine rewards based on your contribution.",
+        "Choisissez votre modèle d'investissement et recevez des récompenses exclusives en vin basées sur votre contribution.",
       stepNumber: 3,
     },
   ],
   vineyardSteps = [
     {
       icon: <Users className="h-10 w-10 text-[#722F37]" />,
-      title: "Register Your Vineyard",
+      title: "Enregistrez Votre Vignoble",
       description:
-        "Create a detailed profile showcasing your vineyard's history, terroir, and unique qualities.",
+        "Créez un profil détaillé présentant l'histoire de votre vignoble, son terroir et ses qualités uniques.",
       stepNumber: 1,
     },
     {
       icon: <Grape className="h-10 w-10 text-[#722F37]" />,
-      title: "Create a Project",
+      title: "Créez un Projet",
       description:
-        "Define your funding goals, timeline, and the exclusive wine rewards for your investors.",
+        "Définissez vos objectifs de financement, le calendrier et les récompenses exclusives en vin pour vos investisseurs.",
       stepNumber: 2,
     },
     {
       icon: <Coins className="h-10 w-10 text-[#722F37]" />,
-      title: "Receive Funding",
+      title: "Recevez des Financements",
       description:
-        "Connect with passionate investors and receive the capital needed to grow your vineyard.",
+        "Connectez-vous avec des investisseurs passionnés et recevez le capital nécessaire pour développer votre vignoble.",
       stepNumber: 3,
     },
   ],
@@ -104,7 +104,7 @@ const HowItWorks = ({
             <span className="bg-[#722F37] text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">
               1
             </span>
-            For Wine Enthusiasts & Investors
+            Pour les Amateurs de Vin & Investisseurs
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {investorSteps.map((step, index) => (
@@ -116,7 +116,7 @@ const HowItWorks = ({
               className="bg-[#722F37] hover:bg-[#5a252c] text-white"
               size="lg"
             >
-              Start Investing <ArrowRight className="ml-2 h-4 w-4" />
+              Commencer à Investir <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -126,7 +126,7 @@ const HowItWorks = ({
             <span className="bg-[#722F37] text-white rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">
               2
             </span>
-            For Vineyard Owners
+            Pour les Propriétaires de Vignobles
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {vineyardSteps.map((step, index) => (
@@ -138,7 +138,7 @@ const HowItWorks = ({
               className="bg-[#722F37] hover:bg-[#5a252c] text-white"
               size="lg"
             >
-              List Your Vineyard <ArrowRight className="ml-2 h-4 w-4" />
+              Inscrire Votre Vignoble <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>

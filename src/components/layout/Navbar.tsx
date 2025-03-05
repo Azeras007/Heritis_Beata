@@ -27,7 +27,7 @@ interface NavbarProps {
 const Navbar = ({
   isLoggedIn = false,
   userType = "investor",
-  userName = "Guest User",
+  userName = "Utilisateur Invité",
   userAvatar = "https://api.dicebear.com/7.x/avataaars/svg?seed=guest",
 }: NavbarProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -52,11 +52,11 @@ const Navbar = ({
                   href="/"
                   className={navigationMenuTriggerStyle()}
                 >
-                  Home
+                  Accueil
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Discover</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Découvrir</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[400px]">
                     <div className="p-2 hover:bg-slate-100 rounded-md">
@@ -64,11 +64,11 @@ const Navbar = ({
                         href="/projects/featured"
                         className="block font-medium"
                       >
-                        Featured Vineyards
+                        Vignobles en Vedette
                       </NavigationMenuLink>
                       <p className="text-sm text-gray-500">
-                        Explore our handpicked selection of exceptional vineyard
-                        projects
+                        Explorez notre sélection de projets viticoles
+                        exceptionnels
                       </p>
                     </div>
                     <div className="p-2 hover:bg-slate-100 rounded-md">
@@ -76,10 +76,11 @@ const Navbar = ({
                         href="/projects/new"
                         className="block font-medium"
                       >
-                        New Arrivals
+                        Nouveaux Arrivages
                       </NavigationMenuLink>
                       <p className="text-sm text-gray-500">
-                        Discover the latest vineyard projects seeking funding
+                        Découvrez les derniers projets viticoles en recherche de
+                        financement
                       </p>
                     </div>
                     <div className="p-2 hover:bg-slate-100 rounded-md">
@@ -87,17 +88,17 @@ const Navbar = ({
                         href="/projects/map"
                         className="block font-medium"
                       >
-                        Vineyard Map
+                        Carte des Vignobles
                       </NavigationMenuLink>
                       <p className="text-sm text-gray-500">
-                        Browse projects by region and terroir
+                        Parcourez les projets par région et terroir
                       </p>
                     </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>How It Works</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Comment ça Marche</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[400px]">
                     <div className="p-2 hover:bg-slate-100 rounded-md">
@@ -105,11 +106,11 @@ const Navbar = ({
                         href="/how-it-works/investors"
                         className="block font-medium"
                       >
-                        For Investors
+                        Pour les Investisseurs
                       </NavigationMenuLink>
                       <p className="text-sm text-gray-500">
-                        Learn how to invest in vineyard projects and earn
-                        rewards
+                        Apprenez comment investir dans des projets viticoles et
+                        gagner des récompenses
                       </p>
                     </div>
                     <div className="p-2 hover:bg-slate-100 rounded-md">
@@ -117,11 +118,11 @@ const Navbar = ({
                         href="/how-it-works/vineyards"
                         className="block font-medium"
                       >
-                        For Vineyard Owners
+                        Pour les Propriétaires de Vignobles
                       </NavigationMenuLink>
                       <p className="text-sm text-gray-500">
-                        Discover how to fund your vineyard project through our
-                        platform
+                        Découvrez comment financer votre projet viticole via
+                        notre plateforme
                       </p>
                     </div>
                     <div className="p-2 hover:bg-slate-100 rounded-md">
@@ -129,10 +130,11 @@ const Navbar = ({
                         href="/investment-options"
                         className="block font-medium"
                       >
-                        Investment Options
+                        Options d'Investissement
                       </NavigationMenuLink>
                       <p className="text-sm text-gray-500">
-                        Explore different ways to support vineyard projects
+                        Explorez différentes façons de soutenir les projets
+                        viticoles
                       </p>
                     </div>
                   </div>
@@ -143,7 +145,7 @@ const Navbar = ({
                   href="/about"
                   className={navigationMenuTriggerStyle()}
                 >
-                  About Us
+                  À Propos
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -171,32 +173,32 @@ const Navbar = ({
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
                   <User className="mr-2 h-4 w-4" />
-                  <span>My Profile</span>
+                  <span>Mon Profil</span>
                 </DropdownMenuItem>
                 {userType === "investor" ? (
                   <DropdownMenuItem>
-                    <span>My Investments</span>
+                    <span>Mes Investissements</span>
                   </DropdownMenuItem>
                 ) : (
                   <DropdownMenuItem>
-                    <span>My Vineyard Projects</span>
+                    <span>Mes Projets Viticoles</span>
                   </DropdownMenuItem>
                 )}
                 <DropdownMenuItem>
-                  <span>Settings</span>
+                  <span>Paramètres</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <span>Log Out</span>
+                  <span>Déconnexion</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
             <div className="hidden md:flex space-x-2">
               <Button variant="ghost">
-                <LogIn className="mr-2 h-4 w-4" /> Log In
+                <LogIn className="mr-2 h-4 w-4" /> Connexion
               </Button>
               <Button className="bg-[#722F37] hover:bg-[#5a252c] text-white">
-                Sign Up
+                S'inscrire
               </Button>
             </div>
           )}
@@ -218,28 +220,28 @@ const Navbar = ({
         <div className="md:hidden bg-white border-t border-gray-200 absolute w-full shadow-lg">
           <div className="p-4 space-y-4">
             <a href="/" className="block py-2 font-medium">
-              Home
+              Accueil
             </a>
             <a href="/projects/featured" className="block py-2 font-medium">
-              Discover
+              Découvrir
             </a>
             <a
               href="/how-it-works/investors"
               className="block py-2 font-medium"
             >
-              How It Works
+              Comment ça Marche
             </a>
             <a href="/about" className="block py-2 font-medium">
-              About Us
+              À Propos
             </a>
             <div className="pt-4 border-t border-gray-200">
               {!isLoggedIn && (
                 <div className="space-y-2">
                   <Button variant="outline" className="w-full">
-                    <LogIn className="mr-2 h-4 w-4" /> Log In
+                    <LogIn className="mr-2 h-4 w-4" /> Connexion
                   </Button>
                   <Button className="w-full bg-[#722F37] hover:bg-[#5a252c] text-white">
-                    Sign Up
+                    S'inscrire
                   </Button>
                 </div>
               )}
