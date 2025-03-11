@@ -10,6 +10,7 @@ const ProjectsPage = lazy(() => import("./pages/ProjectsPage"));
 const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage"));
 const MarketplacePage = lazy(() => import("./pages/MarketplacePage"));
 const VineyardDetailPage = lazy(() => import("./pages/VineyardDetailPage"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             path="/marketplace/vineyard/:id"
             element={<VineyardDetailPage />}
           />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
         {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
       </>

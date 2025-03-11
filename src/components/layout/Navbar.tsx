@@ -49,15 +49,28 @@ const Navbar = ({
       propUserType;
     const storedUserName = localStorage.getItem("userName") || propUserName;
 
-    setIsLoggedIn(storedIsLoggedIn);
-    setUserType(storedUserType);
-    setUserName(storedUserName);
-
-    // Generate avatar based on username
-    if (storedIsLoggedIn) {
+    // Force login status to true for demo purposes
+    if (!storedIsLoggedIn) {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userType", "investor");
+      localStorage.setItem("userName", "Jean Dupont");
+      setIsLoggedIn(true);
+      setUserType("investor");
+      setUserName("Jean Dupont");
       setUserAvatar(
-        `https://api.dicebear.com/7.x/avataaars/svg?seed=${storedUserName.replace(/\s+/g, "")}`,
+        `https://api.dicebear.com/7.x/avataaars/svg?seed=JeanDupont`,
       );
+    } else {
+      setIsLoggedIn(storedIsLoggedIn);
+      setUserType(storedUserType);
+      setUserName(storedUserName);
+
+      // Generate avatar based on username
+      if (storedIsLoggedIn) {
+        setUserAvatar(
+          `https://api.dicebear.com/7.x/avataaars/svg?seed=${storedUserName.replace(/\s+/g, "")}`,
+        );
+      }
     }
   }, [propIsLoggedIn, propUserType, propUserName, propUserAvatar]);
 
@@ -223,16 +236,16 @@ const Navbar = ({
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => navigate("/profile")}>
                   <User className="mr-2 h-4 w-4" />
                   <span>Mon Profil</span>
                 </DropdownMenuItem>
                 {userType === "investor" ? (
-                  <DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => navigate("/profile")}>
                     <span>Mes Investissements</span>
                   </DropdownMenuItem>
                 ) : (
-                  <DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => navigate("/profile")}>
                     <span>Mes Projets Viticoles</span>
                   </DropdownMenuItem>
                 )}

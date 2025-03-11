@@ -4,6 +4,7 @@ import HeroSection from "./home/HeroSection";
 import FeaturedProjects from "./home/FeaturedProjects";
 import HowItWorks from "./home/HowItWorks";
 import InvestmentOptions from "./home/InvestmentOptions";
+import MarketplacePreview from "./home/MarketplacePreview";
 import Footer from "./layout/Footer";
 
 interface HomePageProps {
@@ -33,6 +34,7 @@ const HomePage = ({
         {/* Add padding top to account for fixed navbar */}
         <HeroSection />
         <FeaturedProjects />
+        <MarketplacePreview />
         <HowItWorks />
         <InvestmentOptions />
       </main>
