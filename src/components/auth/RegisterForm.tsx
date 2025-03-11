@@ -14,6 +14,7 @@ import {
 import { Wine, Mail, Lock, User, Eye, EyeOff } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface RegisterFormProps {
   onSuccess?: () => void;
@@ -24,11 +25,12 @@ const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [userType, setUserType] = useState("investor");
+  const [userType, setUserType] = useState<"investor" | "vineyard">("investor");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { register } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,25 +46,20 @@ const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
 
     setIsLoading(true);
 
-    // Simulate registration process
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Inscription réussie",
-        description: "Bienvenue sur Heritis!",
-      });
-
-      // In a real app, you would store the user session
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userType", userType);
-      localStorage.setItem("userName", name);
-
-      if (onSuccess) {
-        onSuccess();
-      } else {
-        navigate("/");
+    try {
+      const success = await register(email, password, name, userType);
+      if (success) {
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          navigate("/");
+        }
       }
-    }, 1500);
+    } catch (error) {
+      console.error("Erreur d'inscription:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

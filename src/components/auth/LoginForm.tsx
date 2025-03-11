@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import { Wine, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface LoginFormProps {
   onSuccess?: () => void;
@@ -25,30 +26,26 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login process
-    setTimeout(() => {
-      setIsLoading(false);
-      toast({
-        title: "Connexion réussie",
-        description: "Bienvenue sur Heritis!",
-      });
-
-      // In a real app, you would store the user session
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("userType", "investor");
-      localStorage.setItem("userName", "Jean Dupont");
-
-      if (onSuccess) {
-        onSuccess();
-      } else {
-        navigate("/");
+    try {
+      const success = await login(email, password);
+      if (success) {
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          navigate("/");
+        }
       }
-    }, 1500);
+    } catch (error) {
+      console.error("Erreur de connexion:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

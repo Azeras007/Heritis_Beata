@@ -18,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/components/ui/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface NavbarProps {
   isLoggedIn?: boolean;
@@ -74,21 +75,14 @@ const Navbar = ({
     }
   }, [propIsLoggedIn, propUserType, propUserName, propUserAvatar]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userType");
-    localStorage.removeItem("userName");
+  const { logout } = useAuth();
 
+  const handleLogout = async () => {
+    await logout();
     setIsLoggedIn(false);
     setUserType("investor");
     setUserName("Utilisateur Invité");
     setUserAvatar("https://api.dicebear.com/7.x/avataaars/svg?seed=guest");
-
-    toast({
-      title: "Déconnexion réussie",
-      description: "À bientôt sur Heritis!",
-    });
-
     navigate("/");
   };
 
